@@ -1,0 +1,205 @@
+/* Custom work for an Emacs look */
+body {
+  background: #000;
+  color: #ddd;
+  cursor: default;
+  font-family: 'DejaVu Sans Mono', 'Lucida Sans Typewriter', monospace;
+  font-size: 12px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  height: auto;
+  line-height: normal;
+  width: auto;
+  zoom: 1;
+}
+
+
+#frame {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow-y: auto; 
+  height:96%;
+}
+
+
+.emacs-buffer {
+    margin-top:1.5em;
+    margin-bottom:3em;
+}
+
+.emacs-modeline {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #999;
+    color: #000;
+
+    margin-top: 2em;
+    border-top: 1px solid #ddd;
+    border-bottom: 1.5em solid #000;
+
+    box-shadow: 10px 10px 5px #888888;
+    
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+}
+
+.emacs-minibuffer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    color: #999;
+    margin-top: 0em;
+    margin-left: 2px;
+    border-top: 0px solid #ddd;
+    border-bottom: 0em solid #000;
+    box-shadow: 10px 10px 5px #888888;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    z-index: 100;
+}
+
+
+.navbar {
+    min-height:17px;
+    background:#999;
+    color: #000;
+    border-top: 1px solid #ddd;
+    border-bottom: 0px solid #000;
+}
+
+.container {
+    padding-left:0px;
+}
+
+.navbar-nav {
+    padding-top:2px;
+    padding-bottom:2px;
+    display:initial;
+}
+
+.dropdown-toggle {
+    display:initial;
+    color:#000;
+}
+
+.dropdown-menu {
+    font-size:inherit;
+    background-color:#999;
+    border:0px solid #000;
+    min-width: 10px;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color:#333;
+}
+
+.navbar-nav > li > a {
+    padding:1px 10px;
+    line-height:1px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color:#000;
+}
+
+.nav > li > a {
+    display:initial;
+}
+.example {
+    background-color:#333;
+    color:#ddd;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+/* Originally the inline css from org html publisher */
+.title  { text-align: left;
+	  margin-bottom: 30px;
+	  margin-top: 30px; }
+.todo   { font-family: monospace; color: red; }
+.done   { color: green; }
+.tag    { background-color: #eee; font-family: monospace;
+          padding: 2px; font-size: 80%; font-weight: normal; }
+.timestamp { color: #bebebe; }
+.timestamp-kwd { color: #5f9ea0; }
+.right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+.center { margin-left: auto; margin-right: auto; text-align: center; }
+.underline { text-decoration: underline; }
+#postamble p, #preamble p { font-size: 90%; margin: .2em; }
+p.verse { margin-left: 3%; }
+pre {
+  border: 1px solid #ccc;
+  padding: 8pt;
+  font-family: monospace;
+  overflow: auto;
+  margin: 1.2em;
+}
+pre.src {
+  position: relative;
+  overflow: visible;
+  padding-top: 1.2em;
+}
+pre.src:before {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: -10px;
+  right: 10px;
+  padding: 3px;
+  border: 1px solid black;
+}
+pre.src:hover:before { display: inline;}
+pre.src-sh:before    { content: 'sh'; }
+pre.src-bash:before  { content: 'sh'; }
+pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+pre.src-R:before     { content: 'R'; }
+pre.src-perl:before  { content: 'Perl'; }
+pre.src-java:before  { content: 'Java'; }
+pre.src-sql:before   { content: 'SQL'; }
+table { border-collapse:collapse; }
+caption.t-above { caption-side: top; }
+caption.t-bottom { caption-side: bottom; }
+td, th { vertical-align:top;  }
+th.right  { text-align: center;  }
+th.left   { text-align: center;   }
+th.center { text-align: center; }
+td.right  { text-align: right;  }
+td.left   { text-align: left;   }
+td.center { text-align: center; }
+dt { font-weight: bold; }
+.footpara:nth-child(2) { display: inline; }
+.footpara { display: block; }
+.footdef  { margin-bottom: 1em; }
+.figure { padding: 1em; }
+.figure p { text-align: center; }
+.inlinetask {
+  padding: 10px;
+  border: 2px solid gray;
+  margin: 10px;
+  background: #ffffcc;
+}
+#org-div-home-and-up { text-align: right; font-size: 70%; white-space: nowrap; }
+textarea { overflow-x: auto; }
+.linenr { font-size: smaller }
+.code-highlighted { background-color: #ffff00; }
+.org-info-js_info-navigation { border-style: none; }
+#org-info-js_console-label  { font-size: 10px; font-weight: bold; white-space: nowrap; }
+.org-info-js_search-highlight  { background-color: #ffff00; color: #000000; font-weight: bold; }
