@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Start page</title>
-<!-- 2016-11-06 sön 14:03 -->
+<title>autosleep</title>
+<!-- 2016-11-06 sön 14:02 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="perweij">
@@ -72,23 +72,130 @@ for the JavaScript code in this tag.
 	      ;; then enter the text in that file's own buffer.
 	    </div>
 <div id="content">
-<h1 class="title">Start page</h1>
+<h1 class="title">autosleep</h1>
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><a href="pages/page3.html">Autosleep</a></h2>
+<h2 id="sec-1">Description</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-A small C program providing the means to suspend GNU/Linux after a given time of user inactivity.
+This is a program that will execute a command after the user has been
+idle past a given time limit. The main purpose is to execute an OS
+suspend command, although any command can be supplied. Autosleep
+continues after each suspend cycle, making it suitable for starting
+just once in your <code>~/.xinitrc</code>.
+</p>
+
+<p>
+User activity is picked up from X11 and include mouse movement and keyboard
+activity. In contrast to other techniques, it does not depend on XScreenSaver.
+</p>
+
+<p>
+Bigger desktop session packages provide this functionality, but for
+minimal setups with only X11 and dwm/evilwm/&#x2026;, I haven't found
+anything similar. A design goal is not to depend on runtimes that pull
+in loads of dependencies, and just be a simple C program.
+</p>
+
+<p>
+I have only tried this on my laptops, running GNU/Linux Debian Jessie
+x86<sub>64</sub> and i686 - I have no idea if it needs tweaking for other OS
+versions. This probably only works in GNU/Linux.
+</p>
+
+
+<p>
+Download autosleep <a href="https://github.com/perweij/autosleep/releases">here</a>.
 </p>
 </div>
 </div>
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><a href="pages/page1.html">Configuring Emacs as a Javascript IDE</a></h2>
+<h2 id="sec-2">Usage</h2>
 <div class="outline-text-2" id="text-2">
+<pre class="example">
+autosleep timeout_seconds keyboard_input_nr suspend_cmd...
+
+- timeout_seconds   - the number of seconds that defines inactivity
+- keyboard_input_nr - your keyboard id number (check with xinput -list)
+- suspend_cmd...    - the suspend command and arguments. Full path required, including to sudo.
+</pre>
+
 <p>
-Read about how to configure EMACS as a JS IDE.
+I use this with the s2ram suspend command. I recommend adding the
+following to a new file in <code>/etc/sudoers.d/</code> (and chmod 440), to make it
+executable without sudo password input:
 </p>
+
+<pre class="example">
+yourusername ALL=(ALL) NOPASSWD: /usr/sbin/s2ram
+</pre>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Examples</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Suspend the computer after one hour of inactivity on keyboard ID 9:
+</p>
+<pre class="example">
+autosleep 3600 9 /usr/bin/sudo /usr/sbin/s2ram
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Install</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><code>autoreconf --install</code>
+</li>
+<li><code>./configure (--prefix...)</code>
+</li>
+<li><code>make all (install)</code>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Todo</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Right now it monitors the keyboard and the mouse movements. Monitoring
+mouse clicks as well would be a natural continuation.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Acknowledgements</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+For reading the mouse position, I found this useful: <a href="https://ubuntuforums.org/showthread.php?t=562087">https://ubuntuforums.org/showthread.php?t=562087</a> (user: cwcentral).
+</p>
+
+<p>
+For setting up event listening in X11, I found this useful:  <a href="https://anonscm.debian.org/cgit/pkg-xorg/app/xinput.git/tree/src/test.c">https://anonscm.debian.org/cgit/pkg-xorg/app/xinput.git/tree/src/test.c</a> (Frederic Lepied, France. &lt;Frederic.Lepied@sugix.frmug.org&gt;).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">History</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1">2016-11-06: Version 0.1</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+A rough first version.
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -111,7 +218,7 @@ Read about how to configure EMACS as a JS IDE.
     </nav>
 
 
-	  <div class='emacs-modeline'>-:-- Start page (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2016-11-06T14:03:53+01:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- autosleep (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2016-11-06T14:02:56+01:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
