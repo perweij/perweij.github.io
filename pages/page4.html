@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Assorted technical notes</title>
+<title>Static web site publishing from org-mode</title>
 <!-- 2016-11-06 sön 14:17 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
@@ -72,36 +72,89 @@ for the JavaScript code in this tag.
 	      ;; then enter the text in that file's own buffer.
 	    </div>
 <div id="content">
-<h1 class="title">Assorted technical notes</h1>
-<p>
-My name is Per Weijnitz and created this web site to share some notes
-and programs that may be of use to someone.
-</p>
+<h1 class="title">Static web site publishing from org-mode</h1>
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><a href="pages/page3.html">Autosleep</a></h2>
+<h2 id="sec-1">Motivation and Description</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-A small C program providing the means to suspend GNU/Linux after a given time of user inactivity.
+I generally prefer to work in <a href="http://www.gnu.org/software/emacs/">GNU Emacs</a>. When taking notes, planning,
+and authoring I use <a href="http://orgmode.org/">Org mode for Emacs</a>. So it seems natural to author
+and publish articles for a web site like this directly from within Org
+mode. Of course, Org mode offers <a href="http://orgmode.org/manual/HTML-export.html">this functionality</a>. 
+</p>
+
+<p>
+I also thought it would be a both nice and useful twist to have the
+web site styled as an Emacs frame, with a theme similar to the theme I
+use in Emacs (this web site features an navigation bar resembling
+Emacs menu-bar-mode - a mode I have disabled in Emacs, so it is not
+really similar). Nice, because minimalism can look good, and useful
+because a uniform look reduces the cognitive stress on my brain when I
+move my gaze from Emacs to the web browser.
+</p>
+
+<p>
+I used <a href="https://github.com/NicolasPetton/emacs.d/blob/9689939b21c706aa4d2c702df8c731f71b2ae49f/hosts/blueberry/init-org-publish.el">Nicolas Petton's publisher</a> as a start, and did some work to
+learn Emacs Lisp and to create the fancy Emacs look.
+</p>
+
+<p>
+By calling 
+</p>
+<pre class="example">
+M-x org-publish
+</pre>
+<p>
+the Org mode's HTML exporter exports any modified article org-files
+and saves in the publishing directory. 
+</p>
+
+<p>
+As everything is implemented within Emacs, I can make use of other
+powerful Emacs packages for even more convenience. I have specified the
+publishing directory using <a href="http://www.gnu.org/software/tramp/">Tramp syntax</a>, pointing to my DMZ machine
+running the external web server:
+</p>
+<pre class="example">
+:publishing-directory "/home-dmz:/var/www"
+</pre>
+<p>
+It is convenient to be able to both author and publish from within
+Emacs.
 </p>
 </div>
 </div>
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><a href="pages/page1.html">Configuring Emacs as a Javascript IDE</a></h2>
+<h2 id="sec-2">Screenshot</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Read about how to configure EMACS as a JS IDE.
+Here is a screenshot of Emacs with the source code for this article
+(not fully up to date though):
 </p>
+
+
+<div class="figure">
+<p><img src="../data/siteinfo.org.png" alt="siteinfo.org.png">
+</p>
+</div>
 </div>
 </div>
 
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><a href="pages/page4.html">Static web site publishing from org-mode</a></h2>
+<h2 id="sec-3">Todo</h2>
 <div class="outline-text-2" id="text-3">
-<p>
-Read about how this web site is generated from within GNU/Emacs with org-mode.
-</p>
+<ul class="org-ul">
+<li>Emacs keystrokes - I might add one or two for fun.
+</li>
+<li>RSS feed.
+</li>
+<li>Tags - markup articles with topic tags and present in some sensible way.
+</li>
+<li>Make the source code available.
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -124,7 +177,7 @@ Read about how this web site is generated from within GNU/Emacs with org-mode.
     </nav>
 
 
-	  <div class='emacs-modeline'>-:-- Assorted technical notes (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2016-11-06T14:17:37+01:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- Static web site publishing from org-mode (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.50.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2016-11-06T14:17:37+01:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
