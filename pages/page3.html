@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>autosleep</title>
-<!-- 2017-04-22 lör 23:03 -->
+<!-- 2017-04-22 lör 23:29 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="perweij">
@@ -74,8 +74,16 @@ for the JavaScript code in this tag.
 <h1 class="title">autosleep</h1>
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Description</h2>
+<h2 id="sec-1">Changes</h2>
 <div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Nov 06 2016: initial version</h3>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Description</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 This is a program that will execute a command after the user has been
 idle past a given time limit. The main purpose is to execute an OS
@@ -109,9 +117,9 @@ Download autosleep <a href="https://github.com/perweij/autosleep/releases">here<
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Usage</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Usage</h2>
+<div class="outline-text-2" id="text-3">
 <pre class="example">
 autosleep timeout_seconds keyboard_input_nr suspend_cmd...
 
@@ -131,9 +139,9 @@ yourusername ALL=(ALL) NOPASSWD: /usr/sbin/s2ram
 </pre>
 </div>
 
-<div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Examples</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Examples</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 Suspend the computer after one hour of inactivity on keyboard ID 9:
 </p>
@@ -145,9 +153,9 @@ autosleep 3600 9 /usr/bin/sudo /usr/sbin/s2ram
 </div>
 
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Install</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Install</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><code>autoreconf --install</code>
 </li>
@@ -160,9 +168,9 @@ autosleep 3600 9 /usr/bin/sudo /usr/sbin/s2ram
 </div>
 
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Todo</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Todo</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 Right now it monitors the keyboard and the mouse movements. Monitoring
 mouse clicks as well would be a natural continuation.
@@ -171,9 +179,9 @@ mouse clicks as well would be a natural continuation.
 </div>
 
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Acknowledgements</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Acknowledgements</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 For reading the mouse position, I found this useful: <a href="https://ubuntuforums.org/showthread.php?t=562087">https://ubuntuforums.org/showthread.php?t=562087</a> (user: cwcentral).
 </p>
@@ -181,20 +189,6 @@ For reading the mouse position, I found this useful: <a href="https://ubuntuforu
 <p>
 For setting up event listening in X11, I found this useful:  <a href="https://anonscm.debian.org/cgit/pkg-xorg/app/xinput.git/tree/src/test.c">https://anonscm.debian.org/cgit/pkg-xorg/app/xinput.git/tree/src/test.c</a> (Frederic Lepied, France. &lt;Frederic.Lepied@sugix.frmug.org&gt;).
 </p>
-</div>
-</div>
-
-
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">History</h2>
-<div class="outline-text-2" id="text-6">
-</div><div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1">2016-11-06: Version 0.1</h3>
-<div class="outline-text-3" id="text-6-1">
-<p>
-A rough first version.
-</p>
-</div>
 </div>
 </div>
 </div>
@@ -209,7 +203,7 @@ A rough first version.
         <div id='navbar' class='navbar-collapse collapse'>
           <ul class='nav navbar-nav'><li class='dropdown'>
      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Buffers</a>
-       <ul class='dropdown-menu' role='menu'><li><a href="/pages/page2.html">org-mode instead of scripts</a></li><li><a href="/pages/page3.html">autosleep</a></li><li><a href="/pages/page4.html">Static web site publishing from org-mode</a></li><li><a href="/pages/page1.html">Emacs and JS</a></li></ul></li><li class='dropdown'>
+       <ul class='dropdown-menu' role='menu'><li><a href="/pages/page1.html">Emacs and JS</a></li><li><a href="/pages/page2.html">org-mode instead of scripts</a></li><li><a href="/pages/page3.html">autosleep</a></li><li><a href="/pages/page4.html">Static web site publishing from org-mode</a></li></ul></li><li class='dropdown'>
      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Help</a>
        <ul class='dropdown-menu' role='menu'><li><a href="/pages/contact.html">Contact</a></li><li><a href="/index.html">Assorted technical notes</a></li></ul></li></ul>
         </div><!--/.nav-collapse -->
@@ -217,7 +211,7 @@ A rough first version.
     </nav>
 
 
-	  <div class='emacs-modeline'>-:-- autosleep (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-22T23:03:42+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- autosleep (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-22T23:29:34+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>

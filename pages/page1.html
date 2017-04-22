@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Emacs and JS</title>
-<!-- 2017-04-22 lör 23:07 -->
+<!-- 2017-04-22 lör 23:29 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="perweij">
@@ -73,9 +73,9 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Emacs and JS</h1>
 
-<div id="outline-container-sec-0-1" class="outline-3">
-<h3 id="sec-0-1">Changes</h3>
-<div class="outline-text-3" id="text-0-1">
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Changes</h2>
+<div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Apr 24 2016: initial version
 </li>
@@ -86,9 +86,9 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Configuring Emacs as a Javascript IDE</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Configuring Emacs as a Javascript IDE</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 This would seem like a totally redundant page, as there are already
 many pages to be found about how to configure Emacs best as a JS
@@ -118,12 +118,12 @@ UPDATE - this seems like a better option: <a href="https://github.com/NicolasPet
 </div>
 
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Requirements</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Software</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Requirements</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Software</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 <a href="http://ternjs.net/">tern.js</a> is a stand-alone code-analysis engine for JavaScript, intended
 to be used with a code editor plugin. There are plugins for several
@@ -132,9 +132,9 @@ editors, including GNU Emacs.
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Emacs packages</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Emacs packages</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 The packages are all available in the <a href="https://melpa.org/">Melpa</a>
 package repository, and can be installed with Emacs' builtin package
@@ -158,17 +158,17 @@ manager.
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Setup</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Setup</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 First install the <a href="http://ternjs.net/">tern.js</a> using the instructions on their site.
 </p>
 </div>
 
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1">Initialise packages</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">Initialise packages</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 For your convenience, here is some elisp to download, which will install the required packages. You only need to run it once, then it can be removed.
 </p>
@@ -183,9 +183,9 @@ For your convenience, here is some elisp to download, which will install the req
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2">Configure Emacs</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">Configure Emacs</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 Add the following to your .emacs.d/init.el or wherever you keep your config:
 </p>
@@ -224,9 +224,9 @@ Add the following to your .emacs.d/init.el or wherever you keep your config:
 </div>
 
 
-<div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3">Drop a tern configuration into your project root</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">Drop a tern configuration into your project root</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 This is a basic setup that works as a start. Create the file .tern-project in your project root:
 </p>
@@ -249,9 +249,9 @@ This is a basic setup that works as a start. Create the file .tern-project in yo
 
 
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Usage</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Usage</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 You need to have tern in your PATH - Emacs will start it for you.
 </p>
@@ -275,9 +275,9 @@ There are many refactoring functions. For example, place the cursor on a variabl
 </div>
 </div>
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Troubleshooting</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Troubleshooting</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 How does autocomplete fail? By not autocompleting - you start typing but nothing happens.
 </p>
@@ -306,7 +306,7 @@ Should this happen to you, you may have missed some steps above.
         <div id='navbar' class='navbar-collapse collapse'>
           <ul class='nav navbar-nav'><li class='dropdown'>
      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Buffers</a>
-       <ul class='dropdown-menu' role='menu'><li><a href="/pages/page2.html">org-mode instead of scripts</a></li><li><a href="/pages/page3.html">autosleep</a></li><li><a href="/pages/page4.html">Static web site publishing from org-mode</a></li><li><a href="/pages/page1.html">Emacs and JS</a></li></ul></li><li class='dropdown'>
+       <ul class='dropdown-menu' role='menu'><li><a href="/pages/page1.html">Emacs and JS</a></li><li><a href="/pages/page2.html">org-mode instead of scripts</a></li><li><a href="/pages/page3.html">autosleep</a></li><li><a href="/pages/page4.html">Static web site publishing from org-mode</a></li></ul></li><li class='dropdown'>
      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Help</a>
        <ul class='dropdown-menu' role='menu'><li><a href="/pages/contact.html">Contact</a></li><li><a href="/index.html">Assorted technical notes</a></li></ul></li></ul>
         </div><!--/.nav-collapse -->
@@ -314,7 +314,7 @@ Should this happen to you, you may have missed some steps above.
     </nav>
 
 
-	  <div class='emacs-modeline'>-:-- Emacs and JS (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-22T23:07:06+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- Emacs and JS (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-22T23:29:34+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
