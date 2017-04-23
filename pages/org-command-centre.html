@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>org-mode command centre</title>
-<!-- 2017-04-23 sön 13:17 -->
+<!-- 2017-04-23 sön 13:22 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="Per Weijnitz">
@@ -320,7 +320,7 @@ there is of course infinite number of ways you could use it. Here is a
 simple example of using the function defined above in an org-link:
 </p>
 <pre class="example">
-Connect with [[elisp:(pw/putty "fsf.freedom.org")][putty to fsf.freedom.org]].
+Connect with [[elisp:(pw/remote-tail-f (concat "/" remoteuser "@fsf.freedom.org:/var/log") "hello.log")][tail hello.log]].
 </pre>
 </div>
 </div>
@@ -359,7 +359,7 @@ Connect with [[elisp:(pw/putty "fsf.freedom.org")][putty to fsf.freedom.org]].
     </nav>
 
 
-	  <div class='emacs-modeline'>-:-- org-mode command centre (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-23T13:17:19+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- org-mode command centre (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-23T13:22:44+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
@@ -379,7 +379,7 @@ function fix_babel_blocks() {
     for(var i = 0; i < x.length; i++) {
        var n = x[i].innerHTML;
        n = n.replace(/; #+/g, '#');
-       n = n.replace(/; * /g, ' * ');
+       n = n.replace(/; \* /g, ' * ');
        x[i].innerHTML = n;
     }
 }
