@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>org-mode command centre</title>
+<!-- 2017-04-23 sön 13:13 -->
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="Per Weijnitz">
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href='/data/favicon.ico' rel='shortcut icon' type='image/x-icon' />
+    <link rel='stylesheet' href='/data/bootstrap.min.css' />     
+    <link rel='stylesheet' href='/data/site.css' type='text/css'/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+
+<div class='container'>
+      
+      <div class='row'>
+	<div class='col-sm-12' id='frame' style='-webkit-overflow-scrolling: touch;'>
+	  <div class='emacs-buffer' style='-webkit-overflow-scrolling: touch;'>
+	    <div style='white-space: nowrap; -webkit-overflow-scrolling: touch;'>
+	      ;; This buffer is for notes you don't want to save, and for Lisp evaluation.<br/>
+	      ;; If you want to create a file, visit that file with C-x C-f,<br/>
+	      ;; then enter the text in that file's own buffer.</div>
+<div id="content">
+<h1 class="title">org-mode command centre</h1>
+<table>
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Status:</td>
+<td class="left">Work in progress</td>
+</tr>
+
+<tr>
+<td class="left">Location:</td>
+<td class="left"><a href="https://github.com/perweij/org-command-centre">https://github.com/perweij/org-command-centre</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Changes</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Apr 22 2017: initial version
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Description</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Working as a programmer also entails tasks such as managing remote
+files and processes in test environments, running numerous scripts and
+tools to solve everyday problems and perform tasks, and monitoring
+resources such as diskspace, certificate expiration dates etc on
+numerous machines.
+</p>
+
+<p>
+When my professional journey started two decades ago, I used the most
+naive of approaches. Where sequences of commands were needed, I
+entered them into scripts and placed somewhere. This worked as
+long as I could handle these problems:
+</p>
+<ol class="org-ol">
+<li>remembering that the scripts existed (even after months of doing other stuff)
+</li>
+<li>remembering how the scripts worked
+</li>
+<li>remembering where I had placed the scripts, especially the latest version in case
+I used the copies of the scripts on several servers.
+</li>
+</ol>
+
+<p>
+Later on, I found less naive ways of doing things. Managing scripts in
+a version control system eliminated problem 3. Writing man-pages, or
+other kinds of documents could lessen problem 2 - even though it also
+added the complexity of more files.
+</p>
+
+<p>
+20 years later I still write scripts for bigger tasks, but for most
+cases I use another, arguably superior way of managing everyday life at work. It
+solves all three problems listed above, at least for me. The solution
+works like this:
+</p>
+<ul class="org-ul">
+<li>I have a single <a href="http://orgmode.org/">org-document</a> as a central command and information
+centre.  I have bound the opening of the document to function key
+F12, to make it globally accessible, and it is automatically loaded
+as a start screen for GNU Emacs.  Having all information and
+commands collected in one easily searched org-document lessens the
+risk of forgetting routines and commands, solving problem 1.
+</li>
+<li>I have moved the contents of my many small scripts into the
+org-file structure. The relocated script contents are still
+executable thanks to <a href="http://orgmode.org/worg/org-contrib/babel/">org-babel</a>.  This solves problem 3.
+</li>
+<li>I have placed documentation immediately next to each section of
+org-babel code. This is in the great tradition of <a href="https://en.wikipedia.org/wiki/Literate_programming">literate
+programming</a>, an idea presented by <a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth</a>. Placing information
+about how to run commands right next to the code is efficient as
+you do not need separate documents, and it is as easy to update the
+instructions as the code itself. This solves problem 2.
+</li>
+</ul>
+
+<p>
+I will try to share a couple of recipes here, for how to solve
+some typical programmer tasks in the manner described above.
+</p>
+
+<p>
+Staying true to the principles of literate programming, this very
+document is also the executable code. You can find the document's
+source <a href="https://raw.githubusercontent.com/perweij/org-command-centre/master/README.org">here</a>.
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Setup</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+I strongly suggest you use the latest stable version of GNU Emacs to
+avoid problems with unsupported functions.
+</p>
+
+<p>
+If you are unfamiliar with org-babel, you could start by reading the
+recommended <i>anchor_links</i> at the end of this document. I will try to provide
+enough information here to get beginners started. You will want to add
+your programming languages of choice to your org configuration (or
+just <a href="#recipe_custom">stick it into your org-file directly</a>). Here is a decent, basic
+configuration of org-babel:
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Usage</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A core function of org-babel is executing code blocks. A core
+function of org is <a href="http://orgmode.org/manual/Hyperlinks.html#Hyperlinks">org links</a>. A code block is executed by placing the
+cursor on a code block and pressing <code>C-c C-c</code>. An org link is followed
+by placing the cursor on it and pressing <code>C-l C-o</code>. If you are reading
+this document in GNU Emacs, and have enabled the emacs-lisp
+programming language in your configuration, you could try with the
+example here, which will evaluate the s-expression <code>(emacs-version)</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp" id="emacs_version">(emacs-version)
+</pre>
+</div>
+
+<p>
+Executing the code block will insert the program's output right below the block, like this:
+</p>
+
+<pre class="example">
+GNU Emacs 25.2.1 (x86_64-unknown-linux-gnu, GTK+ Version 2.24.25)
+ of 2017-04-22
+</pre>
+
+<p>
+Giving each code block a <code>name</code> is smart for two reasons. First it
+makes it easier to remember what it does, and second it enables you to
+call this block from other blocks, and use its output
+programmatically, like a function.
+</p>
+
+<p>
+In this example, the code block simply places the output after the
+code block as text. There are many other useful ways to <a href="http://orgmode.org/manual/results.html">direct and
+format the output</a>.
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Recipes</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a id="recipe_custom" name="recipe_custom"></a>
+</p>
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Adding settings and help functions to an org-babel document</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+You can keep settings and helper functions in the document and make
+use of them in your codeblocks, for example settings such as your
+remote user account name, key directories etc, and helper functions to
+start certain external processes that are often used.
+</p>
+
+
+<ol class="org-ol">
+<li>Add a new section to your org-document, for example
+</li>
+</ol>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp" id="startup">; * Document customisations and settings
+; #+name: startup
+; #+begin_src emacs-lisp
+
+ ;; settings
+ (defvar remoteuser "thedude")
+
+ ;; helpers
+ (defun pw/remote-tail-f (directory file)
+  (interactive)
+  (and (switch-to-buffer directory t nil))
+       (cd directory)
+       (async-shell-command (concat "tail -n 2000 -f " file) directory))
+
+; #+end_src
+</pre>
+</div>
+
+
+<ol class="org-ol">
+<li>Add the following line to the top of your org-document:
+</li>
+</ol>
+<pre class="example">
+# -*- eval: (progn (org-babel-goto-named-src-block "startup")(setq org-confirm-elisp-link-function 'y-or-n-p)(org-babel-execute-src-block)) ; -*-
+</pre>
+
+<p>
+Each time you open this document, GNU Emacs will ask for permission to
+evaluate the code in the first line - press <code>y</code>. That line will in
+turn locate and execute the code you placed in the customisation code
+block.
+</p>
+</div>
+
+
+<div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> Usage</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+As you can add just about any clever code to a startup codeblock,
+there is of course infinite number of ways you could use it. Here is a
+simple example of using the function defined above in an org-link:
+</p>
+<pre class="example">
+Connect with [[elisp:(pw/putty "fsf.freedom.org")][putty to fsf.freedom.org]].
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> External links</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/index.html#Top">GNU Emacs documentation</a>
+</li>
+<li><a href="http://orgmode.org/">org-mode</a>
+</li>
+<li><a href="http://www.howardism.org/Technical/Emacs/literate-programming-tutorial.html">Introduction to literate programming in org-babel</a>
+</li>
+<li><a href="http://orgmode.org/worg/org-contrib/babel/intro.html">Introduction to org-babel</a>
+</li>
+<li><a href="http://www.pirilampo.org/org-mode/syntax">org-mode syntax examples</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
+	  </div>
+
+  <!-- Fixed navbar -->
+    <nav class='navbar navbar-default navbar-fixed-top'>
+      <div class='container'>
+        <div id='navbar' class='navbar-collapse collapse'>
+          <ul class='nav navbar-nav'></ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+	  <div class='emacs-modeline'>-:-- org-mode command centre (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-23T13:13:48+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+
+	</div>
+        <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
+	
+    </div>
+        
+    <!-- Bootstrap core JavaScript
+	 ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src='/data/jquery.js'></script>
+    <script src='/data/moment.js'></script>
+    <script src='/data/bootstrap.min.js'></script>
+    <script type='text/javascript'>
+
+function fix_babel_blocks() {
+    var x = document.getElementsByClassName('src');
+    for(var i = 0; i < x.length; i++) {
+       var n = x[i].innerHTML;
+       n = n.replace(/; #+/g, '#+');
+       n = n.replace(/; * /g, ' * ');
+       x[i].innerHTML = n;
+    }
+}
+
+$(function() {
+  fix_babel_blocks();
+});
+
+    </script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src='/data/ie10-viewport-bug-workaround.js'></script>
+</body>
+</html>
