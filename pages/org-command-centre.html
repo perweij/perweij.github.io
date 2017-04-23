@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>org-mode command centre</title>
-<!-- 2017-04-23 sön 13:13 -->
+<!-- 2017-04-23 sön 13:17 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="Per Weijnitz">
@@ -218,7 +218,10 @@ example here, which will evaluate the s-expression <code>(emacs-version)</code>:
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp" id="emacs_version">(emacs-version)
+<pre class="src src-emacs-lisp" id="emacs_version">; #+name: startup
+; #+begin_src emacs-lisp
+ (emacs-version)
+; #+end_src
 </pre>
 </div>
 
@@ -356,7 +359,7 @@ Connect with [[elisp:(pw/putty "fsf.freedom.org")][putty to fsf.freedom.org]].
     </nav>
 
 
-	  <div class='emacs-modeline'>-:-- org-mode command centre (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-23T13:13:48+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- org-mode command centre (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-23T13:17:19+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
@@ -375,7 +378,7 @@ function fix_babel_blocks() {
     var x = document.getElementsByClassName('src');
     for(var i = 0; i < x.length; i++) {
        var n = x[i].innerHTML;
-       n = n.replace(/; #+/g, '#+');
+       n = n.replace(/; #+/g, '#');
        n = n.replace(/; * /g, ' * ');
        x[i].innerHTML = n;
     }
