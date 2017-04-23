@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Assorted technical notes</title>
-<!-- 2017-04-23 sön 13:13 -->
+<!-- 2017-04-23 sön 13:28 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="perweij">
@@ -78,7 +78,7 @@ and programs that may be of use to someone.
 </p>
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><a href="pages/org-command-centre.html">Using org-mode instead of scripts</a></h2>
+<h2 id="sec-1"><a href="pages/page2.html">Using org-mode instead of scripts</a></h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Apr 22 2017: initial version
@@ -145,7 +145,7 @@ Read about how to configure GNU Emacs as a JS IDE.
     </nav>
 
 
-	  <div class='emacs-modeline'>-:-- Assorted technical notes (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-23T13:13:48+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- Assorted technical notes (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-04-23T13:28:08+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
@@ -164,8 +164,8 @@ function fix_babel_blocks() {
     var x = document.getElementsByClassName('src');
     for(var i = 0; i < x.length; i++) {
        var n = x[i].innerHTML;
-       n = n.replace(/; #+/g, '#+');
-       n = n.replace(/; * /g, ' * ');
+       n = n.replace(/; #+/g, '#');
+       n = n.replace(/; \* /g, ' * ');
        x[i].innerHTML = n;
     }
 }
