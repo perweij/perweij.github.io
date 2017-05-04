@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>dockmonitortool</title>
-<!-- 2017-05-05 fre 00:02 -->
+<title>mirror-elpa</title>
+<!-- 2017-05-05 fre 00:04 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="Per Weijnitz">
@@ -71,7 +71,7 @@ for the JavaScript code in this tag.
 	      ;; If you want to create a file, visit that file with C-x C-f,<br/>
 	      ;; then enter the text in that file's own buffer.</div>
 <div id="content">
-<h1 class="title">dockmonitortool</h1>
+<h1 class="title">mirror-elpa</h1>
 
 
 
@@ -79,7 +79,7 @@ for the JavaScript code in this tag.
 <h2 id="sec-1"><span class="section-number-2">1</span> Changes</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>2017-04-23: Version 0.1 - initial version
+<li>2017-05-04: Version 0.1 - initial version
 </li>
 </ul>
 
@@ -100,12 +100,7 @@ for the JavaScript code in this tag.
 
 <tr>
 <td class="left">Location:</td>
-<td class="left"><a href="https://github.com/perweij/dockmonitortool">https://github.com/perweij/dockmonitortool</a></td>
-</tr>
-
-<tr>
-<td class="left">Latest release:</td>
-<td class="left"><a href="https://github.com/perweij/dockmonitortool/releases">https://github.com/perweij/dockmonitortool/releases</a></td>
+<td class="left"><a href="https://github.com/perweij/mirror-elpa">https://github.com/perweij/mirror-elpa</a></td>
 </tr>
 </tbody>
 </table>
@@ -116,84 +111,51 @@ for the JavaScript code in this tag.
 <h2 id="sec-2"><span class="section-number-2">2</span> Description</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-This is a trivially simple tool for automatically setting the right
-display settings depending on whether your laptop is in the docking station or
-not. It periodically monitors the dock file in <code>sysfs</code>, and if its
-state changes it runs the corresponding display setting command.
+This GNU Emacs package can be used to mirror remote <a href="https://elpa.gnu.org/">GNU Emacs Lisp Package Archives</a>.
 </p>
 
 <p>
-This is most likely not useful for X11-users that run a heavy display
-manager such as Gnome or KDE, but if you are running a lightweight
-setup with only X11 and a minimal window manager such as dwm, evilwm
-etc, it can be most useful.
+This is especially useful for creating offline repositories, for use
+without an Internet connection.
 </p>
 </div>
 </div>
-
-
 
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Setup</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> Install</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Before building, you need to adjust three constants in <code>dockmonitortool.c</code>.
+Save <code>mirror-elpa.el</code> in one of your <code>load-path</code> directories.
 </p>
-
-<ol class="org-ol">
-<li><code>#define DOCK &lt;dockfile in sysfs&gt;</code>
 
 <p>
-Specify the file in <code>sysfs</code> corresponding to your dock. It is a file
-that contains integer 0 when no dock is present, and an integer
-with another value when a dock is present. This may vary between
-different hardware, so you need to find the file that is right for
-your system. On my laptop I use:
-=#define DOCK "/sys/devices/platform/hp-wmi/dock"=
+I have only tested this with GNU Emacs version 25.
 </p>
-</li>
-<li><code>#define CMD_DOCK</code> and <code>#define CMD_NODOCK</code>
-
-<p>
-Define the two <code>xrandr</code> commands which you use to set your preferred
-display settings when docked and undocked. If you are unsure what 
-those commands are, you can use the program <code>arandr</code> to interactively
-adjust the display, and saving the resulting settings to a file containing
-the exact <code>xrandr</code> command line to use.
-</p>
-</li>
-</ol>
 </div>
 </div>
-
-
 
 <div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Install</h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> Usage</h2>
 <div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><code>autoreconf --install</code>
-</li>
-<li><code>./configure (--prefix...)</code>
-</li>
-<li><code>make all (install)</code>
-</li>
-</ul>
+<p>
+Here is an example of how to run the program to mirror the Marmalade repositorium.
+</p>
+
+<pre class="example">
+emacs -Q --batch -l package.el -l ./mirror-elpa.el --eval='(progn (push (quote ("marmalade" . "http://marmalade-repo.org/packages/")) package-archives)(package-mirror-elpa "~/your-mirror-root"))'
+</pre>
 </div>
 </div>
-
-
 
 <div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Usage</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> Related work</h2>
 <div class="outline-text-2" id="text-5">
-<p>
-You can run it however you like from within your X11 session. The easiest way
-is to add it to your ~/.xinitrc:
-</p>
-<pre class="example">
-nice dockmonitortool &amp;
-</pre>
+<ul class="org-ul">
+<li><a href="https://github.com/redguardtoo/elpa-mirror">elpa-mirror</a> - a package used to mirror the packages you have already installed.
+</li>
+<li><a href="https://github.com/stephanh/elpa-mirror/blob/master/src/main/scala/Elpa-Mirror.scala">elpa-mirror Scala</a> - a Scala program to mirror files.
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -219,14 +181,14 @@ nice dockmonitortool &amp;
         <div id='navbar' class='navbar-collapse collapse'>
           <ul class='nav navbar-nav'><li class='dropdown'>
      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Buffers</a>
-       <ul class='dropdown-menu' role='menu'><li><a href="/pages/page4.html">Static web site publishing from org-mode</a></li><li><a href="/pages/page1.html">Emacs and JS</a></li><li><a href="/pages/page3.html">autosleep</a></li><li><a href="/pages/page2.html">org-mode command centre</a></li><li><a href="/pages/page5.html">dockmonitortool</a></li><li><a href="/pages/page6.html">dockmonitortool</a></li></ul></li><li class='dropdown'>
+       <ul class='dropdown-menu' role='menu'><li><a href="/pages/page4.html">Static web site publishing from org-mode</a></li><li><a href="/pages/page1.html">Emacs and JS</a></li><li><a href="/pages/page3.html">autosleep</a></li><li><a href="/pages/page2.html">org-mode command centre</a></li><li><a href="/pages/page5.html">dockmonitortool</a></li><li><a href="/pages/page6.html">mirror-elpa</a></li></ul></li><li class='dropdown'>
      <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>Help</a>
        <ul class='dropdown-menu' role='menu'><li><a href="/index.html">Assorted technical notes</a></li><li><a href="/pages/contact.html">Contact</a></li></ul></li></ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-	  <div class='emacs-modeline'>-:-- dockmonitortool (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-05-05T00:02:22+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
+	  <div class='emacs-modeline'>-:-- mirror-elpa (org-html-publish-to-html) 0.20 &nbsp;&nbsp;&nbsp;&nbsp; generator:<a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10) &nbsp;&nbsp;&nbsp;&nbsp; generated:2017-05-05T00:04:15+02:00  &nbsp;&nbsp;&nbsp;&nbsp; &#169;2016 Per Weijnitz</div>
 
 	</div>
         <div class='emacs-minibuffer' id='emacs-minibuffer'></div>
